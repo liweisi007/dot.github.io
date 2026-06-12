@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>djkyc | Cherish Peace • 爱护和平</title>
+    <style>
+        /* 极致全绿护眼配色方案 (Forest Moss & Mint Sage) */
+        :root {
+            --bg-color: #16241f;       /* 背景：深夜丛林绿，对眼睛极其友好 */
+            --card-bg: #1f322b;        /* 卡片：沉稳苔藓绿 */
+            --text-main: #e6f4f0;      /* 主文字：柔和的冰薄荷绿（不刺眼的高透光白） */
+            --text-muted: #8fa89e;     /* 次要文字：知性的蓝绿灰 */
+            --accent-color: #a7f3d0;   /* 核心高亮：温润的嫩芽绿（橄榄枝意象） */
+            --accent-hover: #6ee7b7;   /* 悬停高亮：明亮的春绿 */
+            --border-color: #2d4a3e;   /* 边框：林木深绿线 */
+            --btn-bg: #1b2b25;         /* 按钮背景：深邃竹绿 */
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
+            line-height: 1.7;
+            padding: 40px 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 700px;
+            width: 100%;
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 24px;
+            padding: 50px 40px;
+            box-shadow: 0 20px 40px rgba(11, 20, 17, 0.5);
+        }
+
+        /* 头部区域 */
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .icon-container {
+            font-size: 56px;
+            margin-bottom: 12px;
+            animation: float 4s ease-in-out infinite;
+            display: inline-block;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-6px); }
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--text-main);
+            margin-bottom: 6px;
+            letter-spacing: 1px;
+        }
+
+        .subtitle {
+            font-size: 1rem;
+            color: var(--accent-color);
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }
+
+        /* 核心格言段落 */
+        .quote-block {
+            margin-bottom: 30px;
+            padding-left: 16px;
+            border-left: 3px solid var(--border-color);
+            transition: border-color 0.3s ease;
+            text-align: left;
+        }
+        
+        .quote-block:hover {
+            border-left-color: var(--accent-color);
+        }
+
+        .zh {
+            font-size: 1.05rem;
+            color: var(--text-main);
+            margin-bottom: 6px;
+            font-weight: 400;
+            letter-spacing: 0.3px;
+        }
+
+        .en {
+            font-size: 0.92rem;
+            color: var(--text-muted);
+            font-style: italic;
+        }
+
+        /* 分割线 */
+        .divider {
+            height: 1px;
+            background: linear-gradient(to right, var(--border-color), transparent);
+            margin: 30px 0;
+            border: none;
+        }
+
+        /* 标签与链接区 */
+        .meta-section {
+            margin-top: 40px;
+        }
+
+        .badge-container {
+            margin-bottom: 25px;
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .badge {
+            display: inline-block;
+            background: rgba(167, 243, 208, 0.05);
+            color: var(--accent-color);
+            border: 1px solid rgba(167, 243, 208, 0.15);
+            padding: 4px 12px;
+            border-radius: 30px;
+            font-size: 0.82rem;
+            font-weight: 500;
+        }
+
+        /* 卡片式链接 */
+        .link-grid {
+            display: block;
+        }
+
+        .link-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 16px 20px;
+            background: var(--btn-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            margin-bottom: 14px;
+            text-decoration: none;
+            transition: all 0.25s ease;
+        }
+
+        .link-item:hover {
+            background: rgba(167, 243, 208, 0.03);
+            border-color: var(--accent-hover);
+            transform: translateY(-1px);
+        }
+
+        .link-label {
+            display: flex;
+            flex-direction: column;
+            text-align: left;
+        }
+
+        .link-label .title {
+            color: var(--text-main);
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+
+        .link-label .url {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            margin-top: 2px;
+        }
+
+        .go-icon {
+            color: var(--accent-color);
+            font-weight: bold;
+            transition: transform 0.25s ease;
+        }
+
+        .link-item:hover .go-icon {
+            transform: translateX(5px);
+            color: var(--accent-hover);
+        }
+
+        /* 页脚与致谢 */
+        footer {
+            margin-top: 50px;
+            text-align: center;
+            font-size: 0.82rem;
+            color: var(--text-muted);
+            border-top: 1px solid var(--border-color);
+            padding-top: 25px;
+            line-height: 1.8;
+        }
+
+        footer a {
+            color: var(--accent-color);
+            text-decoration: none;
+            border-bottom: 1px dotted var(--accent-color);
+            transition: color 0.2s ease;
+        }
+
+        footer a:hover {
+            color: var(--accent-hover);
+        }
+
+        /* 移动端适配 */
+        @media (max-width: 600px) {
+            body {
+                padding: 20px 12px;
+            }
+            .container {
+                padding: 35px 20px;
+            }
+            h1 {
+                font-size: 1.8rem;
+            }
+            .quote-block {
+                padding-left: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <div class="icon-container">🕊️</div>
+            <h1>爱护和平</h1>
+            <div class="subtitle">Cherish Peace • djkyc</div>
+        </header>
+
+        <div class="quote-block">
+            <p class="zh">和平不是一句口号，而是每个人内心深处的选择。<br>愿战火止息，愿分歧归于理解，愿世界充满爱。</p>
+            <p class="en">Peace is not just a slogan, but a choice we make deep inside.<br>May the fighting cease, may differences turn into understanding, and may the world be filled with love.</p>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="quote-block">
+            <p class="zh">一片橄榄叶，一份希望。让我们从自身做起，<br>用善意化解冲突，用合作替代对抗。</p>
+            <p class="en">An olive branch carries hope. Let us start from ourselves,<br>resolving conflicts with kindness and replacing confrontation with cooperation.</p>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="quote-block">
+            <p class="zh">科技应以人为本，和平亦需智慧守护。<br>我是一名开发者，愿用代码编织连接，而不是隔阂。</p>
+            <p class="en">Technology should serve humanity, and peace needs wisdom to sustain.<br>As a developer, I build connections with code, not divisions.</p>
+        </div>
+
+        <div class="meta-section">
+            <div class="badge-container">
+                <span class="badge">Non-commercial Use / 非商业用途</span>
+                <span class="badge">🌍 Guarding Our Shared Home</span>
+            </div>
+
+            <div class="link-grid">
+                <a href="https://github.com/liweisi007" target="_blank" class="link-item">
+                    <div class="link-label">
+                        <span class="title">GitHub Profile</span>
+                        <span class="url">github.com/liweisi007</span>
+                    </div>
+                    <span class="go-icon">→</span>
+                </a>
+
+                <a href="https://dot.is-a.dev" target="_blank" class="link-item" onclick="return false;" style="cursor: default;">
+                    <div class="link-label">
+                        <span class="title">Personal Domain <small style="color: var(--accent-color); font-style: normal; margin-left: 4px;">(Reviewing / 申请中)</small></span>
+                        <span class="url">dot.is-a.dev</span>
+                    </div>
+                    <span class="go-icon" style="color: var(--text-muted); font-size: 0.9rem;">⏳</span>
+                </a>
+            </div>
+        </div>
+
+        <footer>
+            <p>© 2026 djkyc. Built with code, sustained with peace.</p>
+            <p>Special thanks to <a href="https://is-a.dev" target="_blank" rel="noopener noreferrer">is-a.dev</a> for providing free domain infrastructure to developers globally.</p>
+            <p>特别感谢 <a href="https://is-a.dev" target="_blank" rel="noopener noreferrer">is-a.dev</a> 为全球开发者提供免费、高质量的域名托管基础设施。</p>
+        </footer>
+    </div>
+
+</body>
+</html>
